@@ -1,0 +1,15 @@
+<h1>New Blog Post </h1>
+<%= form_for @post do |f| %>
+   <div>
+    <%= f.label :title, "title" %>
+    <%= f.text_field :title %>
+    </div>
+
+    <div>
+    <%= f.label :body, "body" %>
+    <%= f.text_area :body %>
+    </div>
+
+   <%= f.submit "Submit", disable_with: 'Submiting...' %>
+    
+<% end %>
