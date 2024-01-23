@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
+  resources :posts
   root "posts#index"
-  get '/posts/new', to: "posts#new"
-  get "/posts/:id", to: "posts#show", as: :post
-  post "/posts", to: "posts#create", as: :posts
-  get '/posts/:id/edit', to: "posts#edit", as: :edit_post
-  patch '/posts/:id', to: "posts#update"
+  # get '/posts/new', to: "posts#new"
+  # get "/posts/:id", to: "posts#show", as: :post
+  # post "/posts", to: "posts#create", as: :posts
+  # get '/posts/:id/edit', to: "posts#edit", as: :edit_post
+  # patch '/posts/:id', to: "posts#update"
+  # delete '/posts/:id', to: "posts#destroy", as: :delete_post
 end
