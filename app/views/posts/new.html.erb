@@ -1,35 +1,3 @@
 <h1>New Blog Post </h1>
-<%= form_with model:@post, data: {turbo: false}  do |f| %>
 
- <%# display form errors if any %>
-    <% if @post.errors.any? %>
-        <div id="error_explanation">
-            <h2>
-                <%= pluralize(@post.errors.count, "error") %> prohibited
-                this post from being saved:
-            </h2>
-            <ul>
-                <% @post.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
-
-
-
-
-
-  <div>
-  <%= f.label :title, "title" %>
-  <%= f.text_field :title, class: @post.errors[:title].any? ? 'field_with_errors' : nil %>
-</div>
-
-<div>
-  <%= f.label :body, "body" %>
-  <%= f.text_area :body, class: @post.errors[:body].any? ? 'field_with_errors' : nil %>
-</div>
-
-   <%= f.submit "Submit", disable_with: 'Submiting...' %>
-    
-<% end %>
+<%= render partial: 'form', locals:{post: @post} %>
