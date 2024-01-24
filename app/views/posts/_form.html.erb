@@ -28,6 +28,10 @@
   <%= f.text_area :body, class: @post.errors[:body].any? ? 'field_with_errors' : nil %>
 </div>
 
+<div>
+  <%= f.label :published_at %>
+  <%= f.datetime_select :published_at, include_blank: true %>
+</div>
    <%= f.button %>
-    
+
 <% end %>

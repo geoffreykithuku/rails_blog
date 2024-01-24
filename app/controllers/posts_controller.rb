@@ -10,10 +10,11 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   def index
-    @posts = Post.all
+   @posts = user_signed_in? ? Post.sorted : Post.published.sorted
   end
 
   def show
+
   end
 
  def create
@@ -49,11 +50,11 @@ end
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :published_at)
   end
 
   def set_post
-    @post = Post.find_by(id: params[:id])
+    @post = user_signed_in? ? Post.find(params[:id]) : Post.published.find(params[:id])
     rescue ActiveRecord::RecordNotFound
     redirect_to root_path
   end
