@@ -50,7 +50,7 @@ end
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :published_at)
+    params.require(:post).permit(:title, :content, :published_at)
   end
 
   def set_post

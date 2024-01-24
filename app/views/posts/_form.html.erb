@@ -25,7 +25,7 @@
 
 <div>
   <%= f.label :body, "body" %>
-  <%= f.text_area :body, class: @post.errors[:body].any? ? 'field_with_errors' : nil %>
+  <%= f.rich_text_area :content, class: @post.errors[:body].any? ? 'field_with_errors' : nil %>
 </div>
 
 <div>
