@@ -11,6 +11,8 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
    @posts = user_signed_in? ? Post.sorted : Post.published.sorted
+
+   @pagy, @posts = pagy(@posts)
   end
 
   def show
@@ -50,7 +52,7 @@ end
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :published_at)
+    params.require(:post).permit(:title, :content, :published_at, :cover_image)
   end
 
   def set_post

@@ -20,12 +20,18 @@
 
 <div>
   <%= f.label :title, "title" %>
-  <%= f.text_field :title, class: @post.errors[:title].any? ? 'field_with_errors' : nil %>
+  <%= f.text_field :title %>
 </div>
 
 <div>
-  <%= f.label :body, "body" %>
-  <%= f.rich_text_area :content, class: @post.errors[:body].any? ? 'field_with_errors' : nil %>
+  <%= f.label :cover_image%>
+  <%= image_tag @post.cover_image if @post.cover_image.present? %>
+  <%= f.file_field :cover_image %>
+  </div>
+
+<div>
+  <%= f.label :content, "content" %>
+  <%= f.rich_text_area :content%>
 </div>
 
 <div>

@@ -6,7 +6,12 @@
      <%elsif post.scheduled? %>
         <div class="p-2 rounded bg-blue-100 text-blue-900">Scheduled</div>
       <%end %>
+      <%= image_tag post.cover_image if post.cover_image.present? %>
     <h2><%= link_to post.title, post %></h2>
     <p><%= post.content %></p>
 
+    <% end %>
+
+   <% if @pagy.count > @pagy.items %>
+    <%= pagy_bootstrap_nav(@pagy) %>
     <% end %>

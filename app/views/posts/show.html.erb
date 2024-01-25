@@ -1,4 +1,4 @@
 <h1> Single blog post </h1>
-
+<%= image_tag @post.cover_image if @post.cover_image.present? %>
 <h2><%= @post.title %></h2>
 <p><%= @post.content %></p>
