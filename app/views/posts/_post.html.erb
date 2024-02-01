@@ -1,0 +1,18 @@
+
+
+<div class="card mb-4 border-2 p-5">
+  <div class="card-body">
+    <div>
+      <% if post.draft? %>
+        <div class="p-2 rounded bg-gray-100 text-gray-900">Draft</div>
+     <%elsif post.scheduled? %>
+        <div class="p-2 rounded bg-blue-100 text-blue-900">Scheduled</div>
+      <%end %>
+      </div>
+    <div>
+       <%= image_tag post.cover_image if post.cover_image.present? %>
+    </div>
+    <h2 class="card-title"><%= link_to post.title, post_path(post) %></h2>
+    <p class="card-text"><%= post.content %></p>
+  </div>
+</div>

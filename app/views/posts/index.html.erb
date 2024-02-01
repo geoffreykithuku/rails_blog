@@ -1,28 +1,26 @@
 
- <div class='h-[40vh]'
+ <div class='h-[40vh] text-[#FFB0B0] flex flex-col justify-center items-center'
   style="
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=600);
+    background-image: linear-gradient(to bottom, rgba(1,2,3,0.7), rgba(0,0,0,0.7)), url(https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1200);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   "
 >
-  <%# home page banner %>
-  <h1>Welcome to CTD Rails</h1>
-  <p>Collection of blog articles focused on Ruby on Rails, to help you learn and grow as a developer.</p>
+  
+  <h1 class="text-4xl font-bold">Welcome to CTD Rails</h1>
+  <br />
+  <p class='text-2xl'>Collection of blog articles focused on Ruby on Rails, to help you learn and grow as a developer.</p>
 </div>
 
-    <% @posts.each do |post|%>
-      <% if post.draft? %>
-        <div class="p-2 rounded bg-gray-100 text-gray-900">Draft</div>
-     <%elsif post.scheduled? %>
-        <div class="p-2 rounded bg-blue-100 text-blue-900">Scheduled</div>
-      <%end %>
-      <%= image_tag post.cover_image if post.cover_image.present? %>
-    <h2><%= link_to post.title, post %></h2>
-    <p><%= post.content %></p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 py-6">
+      <% @posts.each do |post|%>
+     <%= render partial: 'post', locals:{
+          post: post
+     } %>
 
     <% end %>
+      </div>
 
    <% if @pagy.count > @pagy.items %>
     <%= pagy_bootstrap_nav(@pagy) %>
