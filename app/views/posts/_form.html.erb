@@ -2,7 +2,7 @@
 
  
     <% if @post.errors.any? %>
-        <div id="error_explanation">
+        <div id="error_explanation" class=' text-[#FC6736] text-sm'>
             <h2>
                 <%= pluralize(@post.errors.count, "error") %> prohibited
                 this post from being saved:
@@ -18,26 +18,28 @@
 
 
 
-<div>
-  <%= f.label :title, "title" %>
-  <%= f.text_field :title %>
+<div class='flex flex-col gap-2'>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title, class: "rounded-sm border-0 focus:ring-0" %>
 </div>
 
-<div>
+<div class='flex flex-col gap-2 mt-3'>
   <%= f.label :cover_image%>
   <%= image_tag @post.cover_image if @post.cover_image.present? %>
   <%= f.file_field :cover_image %>
   </div>
 
-<div>
-  <%= f.label :content, "content" %>
+<div class='gap-2 flex flex-col my-3'>
+  <%= f.label :content, "Content" %>
   <%= f.rich_text_area :content%>
 </div>
 
-<div>
+<div class='flex gap-2 my-3 justify-start items-end'>
   <%= f.label :published_at %>
   <%= f.datetime_select :published_at, include_blank: true %>
 </div>
-   <%= f.button %>
+ <span class='bg-[#0C2D57] text-white rounded py-3 px-5 mt-6'>
+    <%= f.button %>
+  </span>
 
 <% end %>
