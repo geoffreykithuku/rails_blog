@@ -1,15 +1,15 @@
 
 
-<div class="card mb-4 border-2 w-full max-w-[300px]">
+<div class="card mb-4 w-full max-w-[300px] border-2">
   <div class="card-body">
     <div>
       <% if post.draft? %>
-        <div class="p-2 rounded bg-gray-100 text-gray-900">Draft</div>
+        <div class="p-2 rounded bg-[#e4cdcd] text-[#0C2D57]">Draft</div>
      <%elsif post.scheduled? %>
-        <div class="p-2 rounded bg-blue-100 text-blue-900">Scheduled</div>
+        <div class="p-2 rounded bg-[] text-blue-900">Scheduled</div>
       <%end %>
       </div>
-    <div>
+    <div class='w-full max-w-[300px]'>
        <%= image_tag post.cover_image if post.cover_image.present? %>
     </div>
     <div class='p-3'>
