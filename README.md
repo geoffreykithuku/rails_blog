@@ -3,6 +3,19 @@
 
 CTD Rails is a blog website focused on Ruby on Rails topics. Here, you can find latest articles, tutorials, and other resources to help you learn and grow as a Rails developer.
 
+## Features
+
+- User authentication
+- Create, edit, and delete articles
+- Upload images
+- Schedule articles
+
+## Live Demo
+
+The application is hosted on render and can be accessed at the following URL:
+
+https://blog-5te4.onrender.com/
+
 ## Technologies
 
 - Ruby on Rails
@@ -29,10 +42,6 @@ To run the application, use the following command:
 ```bash
 bin/dev
 ```
-
-## Usage
-
-The application is hosted on render and can be accessed at the following URL:
 
 ## Project Status
 
