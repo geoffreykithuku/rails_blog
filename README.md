@@ -1,24 +1,43 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+CTD Rails is a blog website focused on Ruby on Rails topics. Here, you can find latest articles, tutorials, and other resources to help you learn and grow as a Rails developer.
 
-* Ruby version
+## Technologies
 
-* System dependencies
+- Ruby on Rails
+- PostgreSQL
+- Tailwind CSS
+- Devise
+- RSpec
+- S3 (AWS)
 
-* Configuration
+## Setup
 
-* Database creation
+Clone the repository and install the dependencies:
 
-* Database initialization
+```bash
+git clone git@github.com:geoffreykithuku/rails_blog.git
+cd blog
+bundle install
+```
 
-* How to run the test suite
+The project is using postgres database that is already hosted on render. Therefore, you don't need to setup the database locally or seed the database.
 
-* Services (job queues, cache servers, search engines, etc.)
+To run the application, use the following command:
 
-* Deployment instructions
+```bash
+bin/dev
+```
 
-* ...
+## Usage
+
+The application is hosted on render and can be accessed at the following URL:
+
+## Project Status
+
+The project is currently in development. The next steps are to add more features and improve the UI/UX.
+
+## Contributing
+
+Contributions are welcome. Feel free to open an issue or submit a pull request.
