@@ -1,6 +1,6 @@
 
 
-<div class="card mb-4 w-full max-w-[300px] border-2">
+<div class="card mb-4 w-full max-w-[300px] h-full max-h-[400px] overflow-hidden  border-2 rounded-md pb-5 mx-auto">
   <div class="card-body">
     <div>
       <% if post.draft? %>
@@ -12,9 +12,10 @@
     <div class='w-full max-w-[300px]'>
        <%= image_tag post.cover_image if post.cover_image.present? %>
     </div>
-    <div class='p-3'>
+    <div class='p-3 h-[340px] overflow-hidden'>
       <h2 class="text-2xl text-[#0C2D57] font-medium"><%= link_to post.title, post_path(post) %></h2>
-    <p class="card-text text-base line-clamp-5 text-[#0c2d57]"><%= post.content %></p>
+    <p class="card-text text-base line-clamp-5 text-[#0c2d57]  mb-2 "><%= post.content %></p>
+    <br />
       </div>
   </div>
 </div>

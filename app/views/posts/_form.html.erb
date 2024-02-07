@@ -25,7 +25,7 @@
 
 <div class='flex flex-col gap-2 mt-3'>
   <%= f.label :cover_image%>
-  <%= image_tag @post.cover_image if @post.cover_image.present? %>
+  <%= image_tag @post.cover_image, class: 'rounded-lg object-cover h-[300px] w-full' if @post.cover_image.present? %>
   <%= f.file_field :cover_image %>
   </div>
 
