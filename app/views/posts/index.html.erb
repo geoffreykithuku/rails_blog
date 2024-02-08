@@ -1,3 +1,4 @@
+<div>
 
  <div class='h-[40vh] text-[#0C2D57] flex flex-col justify-center items-center mb-10 px-5 text-center'
 
@@ -8,7 +9,7 @@
   <p class='text-2xl'>Collection of blog articles focused on Ruby on Rails, to help you learn and grow as a developer.</p>
 </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 py-6 gap-6 px-3">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-6 gap-6 px-3 mx-auto">
       <% @posts.each do |post|%>
      <%= render partial: 'post', locals:{
           post: post
@@ -20,3 +21,4 @@
    <% if @pagy.count > @pagy.items %>
     <%= pagy_bootstrap_nav(@pagy) %>
     <% end %>
+  </div>
