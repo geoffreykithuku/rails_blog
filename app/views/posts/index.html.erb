@@ -11,7 +11,10 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-6 gap-6 px-3 mx-auto">
       <% @posts.each do |post|%>
-     <%= render partial: 'post', locals:{
+     <% if (post.draft? || post.scheduled?) && post.user.email != current_user %>
+      <% next %>
+      <% end %>
+      <%= render partial: 'post', locals:{
           post: post
      } %>
 

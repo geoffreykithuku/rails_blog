@@ -3,8 +3,7 @@ class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  before_action :get_current_user, only: [:new, :create, :edit, :update, :destroy]
-
+  before_action :get_current_user
   def new
     @post = Post.new
   end
@@ -34,7 +33,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.user != current_user
+    if @post.user.email != current_user
       redirect_to @post, status: :forbidden, notice: "You can't edit this post"
       return
     end
@@ -47,7 +46,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if @post.user != current_user
+    if @post.user.email != current_user
       redirect_to @post, notice: "You can't delete this post", status: :forbidden
       return
     end
@@ -73,6 +72,6 @@ class PostsController < ApplicationController
   end
 
   def get_current_user
-    @current_user = current_user
+    @current_user = current_user.email
   end
 end

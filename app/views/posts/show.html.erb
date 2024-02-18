@@ -10,8 +10,10 @@
   <div class="flex justify-center gap-6">
     <%= link_to 'Back', root_path, class: 'bg-[#FC3736] text-white px-4 py-2 rounded-lg' %>
 
-     <% if user_signed_in? %>
+     <% if user_signed_in? && @post.user.email == current_user %>
+    
     <%= link_to 'Edit', edit_post_path, class: 'bg-[#FC3736] text-white px-4 py-2 rounded-lg' %>
     <% end %>
     </div>
+
 </div>
