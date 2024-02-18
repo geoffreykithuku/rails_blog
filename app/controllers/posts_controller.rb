@@ -34,6 +34,10 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.user != current_user
+      redirect_to @post, status: :forbidden, notice: "You can't edit this post"
+      return
+    end
 
     if @post.update(post_params)
       redirect_to @post
@@ -43,7 +47,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
-  
+    if @post.user != current_user
+      redirect_to @post, notice: "You can't delete this post", status: :forbidden
+      return
+    end
 
     @post.destroy
     redirect_to root_path
