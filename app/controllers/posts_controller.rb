@@ -75,7 +75,7 @@ class PostsController < ApplicationController
     if current_user
       @current_user = current_user.email
     else
-      @current_user = ''
+      @current_user = nil
     end
   end
 end
