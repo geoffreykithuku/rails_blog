@@ -72,6 +72,10 @@ class PostsController < ApplicationController
   end
 
   def get_current_user
-    @current_user = current_user.email
+    if current_user
+      @current_user = current_user.email
+    else
+      @current_user = ''
+    end
   end
 end
