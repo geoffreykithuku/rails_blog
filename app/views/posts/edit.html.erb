@@ -5,7 +5,11 @@
 
 
     <span class='bg-[#e21313] text-white rounded py-3 px-5 mt-6'>
-<%= button_to 'Delete', @post , method: :delete, data:{turbo_confirm: "Are you sure?"}  %>
+        
+<%# check if the post belongs to the authenticated user, if it is the case, display delete button %>
+<% if @post.user == current_user %>
+    <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
 </div>
 

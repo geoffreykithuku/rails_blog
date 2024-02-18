@@ -3,6 +3,8 @@ class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  before_action :get_current_user, only: [:new, :create, :edit, :update, :destroy]
+
   def new
     @post = Post.new
   end
@@ -19,7 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
+    @post.user = current_user
     if @post.save
       redirect_to @post
     else
@@ -41,6 +43,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+  
 
     @post.destroy
     redirect_to root_path
@@ -60,5 +63,9 @@ class PostsController < ApplicationController
     @post = user_signed_in? ? Post.find(params[:id]) : Post.published.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
+  end
+
+  def get_current_user
+    @current_user = current_user
   end
 end

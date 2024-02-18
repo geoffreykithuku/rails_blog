@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  # add association to the user model
+  belongs_to :user
   has_one_attached :cover_image
   has_rich_text :content
 

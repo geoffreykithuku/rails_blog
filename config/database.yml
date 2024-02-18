@@ -19,11 +19,28 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-development:
-  <<: *default
-  development:
-  url: <%= ENV['DATABASE_URL'] %>
+# development:
+#   <<: *default
+#   development:
+#   url: <%= ENV['DATABASE_URL'] %>
 
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: rails_blog
+#   pool: 5
+#   username: postgres
+#   password: 'postgres'
+#   host: localhost
+
+development:
+   adapter: postgresql
+   encoding: unicode
+   database: blog_edzo
+   pool: 5
+   username: blog_edzo_user
+   password: Mj4vYKt0m9ye8B66r5gKuyoZImWH9UDz
+   host: dpg-cmp7f4mg1b2c73f9leb0-a.oregon-postgres.render.com
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -80,7 +97,10 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: blog_production
-  username: blog
-  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  database: blog_edzo
+  pool: 5
+  username: blog_edzo_user
+  password: Mj4vYKt0m9ye8B66r5gKuyoZImWH9UDz
+  host: dpg-cmp7f4mg1b2c73f9leb0-a.oregon-postgres.render.com
