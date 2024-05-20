@@ -10,7 +10,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = user_signed_in? ? Post.sorted : Post.published.sorted
-
     @pagy, @posts = pagy(@posts)
   end
 
@@ -33,7 +32,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.user.email != current_user
+    if @post.user.email != current_user.email
       redirect_to @post, status: :forbidden, notice: "You can't edit this post"
       return
     end
@@ -73,7 +72,7 @@ class PostsController < ApplicationController
 
   def get_current_user
     if current_user
-      @current_user = current_user.email
+      @current_user = current_user
     else
       @current_user = nil
     end
