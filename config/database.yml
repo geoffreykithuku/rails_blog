@@ -93,10 +93,17 @@ development:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  # adapter: postgresql
+  # encoding: unicode
+  # database: blog_edzo
+  # pool: 5
+  # username: blog_edzo_user
+  # password: Mj4vYKt0m9ye8B66r5gKuyoZImWH9UDz
+  # host: dpg-cmp7f4mg1b2c73f9leb0-a.oregon-postgres.render.com
   adapter: postgresql
   encoding: unicode
-  database: blog_edzo
+  database: rails_blog_yeyb
   pool: 5
-  username: blog_edzo_user
-  password: Mj4vYKt0m9ye8B66r5gKuyoZImWH9UDz
-  host: dpg-cmp7f4mg1b2c73f9leb0-a.oregon-postgres.render.com
+  username: rails_blog_yeyb_user
+  password: y57wWjkDAkJzGWjzMyFuNmpDfC34kNSf
+  host: dpg-cp5fe621hbls73feh9dg-a.oregon-postgres.render.com
